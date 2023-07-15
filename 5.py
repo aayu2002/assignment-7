@@ -1,20 +1,22 @@
-def reverse_words(s):
-  words = s.split()
-  reversed_words = []
+def reverse_k_chars(s, k):
+  reversed_string = ""
+  i = 0
+  while i < len(s):
+    if i + k <= len(s):
+      reversed_string += s[i:i + k][::-1]
+      i += 2 * k
+    else:
+      reversed_string += s[i:][::-1]
+      break
 
-  for word in words:
-    reversed_word = ""
-    for i in range(len(word) - 1, -1, -1):
-      reversed_word += word[i]
-    reversed_words.append(reversed_word)
-
-  return " ".join(reversed_words)
+  return reversed_string
 
 
 def main():
-  s = "Let's take LeetCode contest"
+  s = "abcdefg"
+  k = 2
 
-  reversed_string = reverse_words(s)
+  reversed_string = reverse_k_chars(s, k)
   print(reversed_string)
 
 
